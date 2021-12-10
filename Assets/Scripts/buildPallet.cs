@@ -34,6 +34,7 @@ public class buildPallet : MonoBehaviour
             Destroy(packageCountText);
             Destroy(onePackageCountText);
             Destroy(twoPackageCountText);
+            PlayerControls.packageProgress = 0;
         }
     }
 

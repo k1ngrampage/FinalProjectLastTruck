@@ -10,11 +10,17 @@ public class PlayerControls : MonoBehaviour
     Rigidbody2D rb;
     public float jumpPower = 10;
 
+
     SpriteRenderer spriteRenderer;
 
     Animator anim;
 
     public static int packageProgress = 0;
+
+    public float startPos;
+    public float endPos;
+    public float altStartPos;
+    public float altEndPos;
 
     // Start is called before the first frame update
     void Start()
@@ -54,23 +60,47 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && transform.position.x > 15.2 && transform.position.x < 18.8)
+        if (Input.GetKeyDown(KeyCode.E) && transform.position.x > startPos && transform.position.x < endPos)
         {
             //Debug.Log("Pallet is being built.");
-            if (PackageScore.packages == 1 && packageProgress <= 3)
+            if (PackageScore.packages >= 1 && packageProgress <= 3)
             {
                 Debug.Log("Package has been dropped.");
                 PackageScore.packages -= 1;
                 packageProgress += 1;
             }
-            else if (PackageScore.packages == 2 && packageProgress <= 3)
+            else if (PackageScore.packages >= 2 && packageProgress <= 3)
             {
                 Debug.Log("Package has been dropped.");
                 PackageScore.packages -= 2;
                 packageProgress += 2;
             }
 
-            else if (PackageScore.packages == 3 && packageProgress <= 3)
+            else if (PackageScore.packages >= 3 && packageProgress <= 3)
+            {
+                Debug.Log("Package has been dropped.");
+                PackageScore.packages -= 3;
+                packageProgress += 3;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && transform.position.x > altStartPos && transform.position.x < altEndPos)
+        {
+            //Debug.Log("Pallet is being built.");
+            if (PackageScore.packages >= 1 && packageProgress <= 3)
+            {
+                Debug.Log("Package has been dropped.");
+                PackageScore.packages -= 1;
+                packageProgress += 1;
+            }
+            else if (PackageScore.packages >= 2 && packageProgress <= 3)
+            {
+                Debug.Log("Package has been dropped.");
+                PackageScore.packages -= 2;
+                packageProgress += 2;
+            }
+
+            else if (PackageScore.packages >= 3 && packageProgress <= 3)
             {
                 Debug.Log("Package has been dropped.");
                 PackageScore.packages -= 3;
@@ -114,11 +144,16 @@ public class PlayerControls : MonoBehaviour
             PackageScore.packages += 1;
         }
 
-      /* if (collision.gameObject.tag == "incPallet")
+        if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
-            PackageScore.packages += 1;
-        } */
+            Health.health -= 5f;
+        }
+
+        /* if (collision.gameObject.tag == "incPallet")
+          {
+              Destroy(collision.gameObject);
+              PackageScore.packages += 1;
+          } */
     }
 
 }

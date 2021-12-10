@@ -11,6 +11,7 @@ public class Score : MonoBehaviour
     public Text palletText;
     // public Text packageText;
     public string targetLevel;
+    public int scoreLimit;
 
 
     // Start is called before the first frame update
@@ -26,9 +27,11 @@ public class Score : MonoBehaviour
         palletText.text = "Pallets Loaded: " + score;
        // packageText.text = "Packages" + packages;
 
-        if (score == 3)
+        if (score == scoreLimit)
         {
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             SwitchLevel(false, targetLevel);
+            score = 0;
         }
     }
 
