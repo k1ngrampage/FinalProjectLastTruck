@@ -25,9 +25,14 @@ public class Pallet : MonoBehaviour
         if (transform.position.x < -10)
         {
             Destroy(gameObject);
+            AddScore();
+        }
+
+        void AddScore()
+        {
+            //soundEffect.Play();
             Score.score += 1;
-            soundEffect.Play();
-            soundEffect.PlayOneShot(soundClip, 0.7f);
+            soundEffect.PlayOneShot(soundClip, 1);
         }
     }
 }

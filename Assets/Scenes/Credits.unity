@@ -806,7 +806,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Very Creepy Ominous Horror Music 1\n - Audio_Dread"
+  m_Text: 'Very Creepy Ominous Horror Music 1
+
+    by Audio_Dread'
 --- !u!222 &1617781673
 CanvasRenderer:
   m_ObjectHideFlags: 0

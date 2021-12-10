@@ -48,11 +48,11 @@ public class Enemy : MonoBehaviour
         float distanceToTarget = Vector3.Distance(transform.position, targetTransform.position);
         float distanceToTarget2 = directionVector.magnitude;
 
-        soundEffect.Play();
+        //soundEffect.Play();
 
         if (useActivationRange && distanceToTarget2 > activationRange)
         {
-            soundEffect.Stop();
+            //soundEffect.Stop();
             return;
         }
 
@@ -71,5 +71,13 @@ public class Enemy : MonoBehaviour
             spriteRenderer.flipX = true;
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            soundEffect.Play();
+        }
     }
 }
