@@ -11,6 +11,8 @@ public class buildPallet : MonoBehaviour
     public GameObject onePackageCountText;
     public GameObject twoPackageCountText;
 
+    //AudioSource soundEffect2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class buildPallet : MonoBehaviour
         packageCountText.SetActive(false);
         onePackageCountText.SetActive(false);
         twoPackageCountText.SetActive(false);
+
+       // soundEffect2 = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,11 +33,13 @@ public class buildPallet : MonoBehaviour
         if (PlayerControls.packageProgress == 3)
         {
             incPallet.SetActive(true);
+            //soundEffect2.Play();
             Destroy(gameObject);
             Destroy(otherPalletText);
             Destroy(packageCountText);
             Destroy(onePackageCountText);
             Destroy(twoPackageCountText);
+            
             PlayerControls.packageProgress = 0;
         }
     }

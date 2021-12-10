@@ -22,12 +22,15 @@ public class PlayerControls : MonoBehaviour
     public float altStartPos;
     public float altEndPos;
 
+    AudioSource soundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        soundEffect = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -142,6 +145,7 @@ public class PlayerControls : MonoBehaviour
         {
             Destroy(collision.gameObject);
             PackageScore.packages += 1;
+            soundEffect.Play();
         }
 
         if (collision.gameObject.tag == "Enemy")

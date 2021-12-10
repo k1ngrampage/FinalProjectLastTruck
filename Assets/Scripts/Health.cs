@@ -26,6 +26,7 @@ public class Health : MonoBehaviour
         if (health == 0f)
         {
             SceneManager.LoadScene("Menu");
+            PackageScore.packages = 0;
         }
     }
 }

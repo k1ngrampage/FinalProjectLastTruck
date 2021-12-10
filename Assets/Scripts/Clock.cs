@@ -44,6 +44,7 @@ public class Clock : MonoBehaviour
             Debug.Log("Times Up");
             //Placeholder Exit
             SceneManager.LoadScene("Menu");
+            PackageScore.packages = 0;
         }
         else
         {
